@@ -44,6 +44,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -51,6 +79,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -168,12 +197,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FlowerShopController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\dbFlowerShop.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbFlowerShop.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -182,23 +217,168 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\skdslider.css" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\1.png" />
+    <Content Include="images\10.png" />
+    <Content Include="images\11.jpg" />
+    <Content Include="images\111.jpg" />
+    <Content Include="images\12.png" />
+    <Content Include="images\13.png" />
+    <Content Include="images\14.png" />
+    <Content Include="images\15.png" />
+    <Content Include="images\16.png" />
+    <Content Include="images\17.png" />
+    <Content Include="images\2.png" />
+    <Content Include="images\22.jpg" />
+    <Content Include="images\3.png" />
+    <Content Include="images\4.png" />
+    <Content Include="images\44.jpg" />
+    <Content Include="images\5.png" />
+    <Content Include="images\7.png" />
+    <Content Include="images\8.png" />
+    <Content Include="images\9.png" />
+    <Content Include="images\arrow.png" />
+    <Content Include="images\b1.jpg" />
+    <Content Include="images\b3.jpg" />
+    <Content Include="images\banner-hoa.jpg" />
+    <Content Include="images\banner-hoa3.jpg" />
+    <Content Include="images\banner2-hoa.jpg" />
+    <Content Include="images\bv1.png" />
+    <Content Include="images\bv2.png" />
+    <Content Include="images\bv3.png" />
+    <Content Include="images\bv4.png" />
+    <Content Include="images\bv5.png" />
+    <Content Include="images\bv6.png" />
+    <Content Include="images\bv7.png" />
+    <Content Include="images\bv8.jpg" />
+    <Content Include="images\bv8.png" />
+    <Content Include="images\bv9.png" />
+    <Content Include="images\card.png" />
+    <Content Include="images\check.png" />
+    <Content Include="images\close_1.png" />
+    <Content Include="images\gu1.png" />
+    <Content Include="images\gu2.png" />
+    <Content Include="images\gu3.png" />
+    <Content Include="images\gu4.png" />
+    <Content Include="images\gu5.png" />
+    <Content Include="images\gu6.png" />
+    <Content Include="images\gu7.png" />
+    <Content Include="images\gu8.png" />
+    <Content Include="images\gu9.png" />
+    <Content Include="images\hh1.png" />
+    <Content Include="images\hh2.png" />
+    <Content Include="images\hh3.png" />
+    <Content Include="images\hh4.png" />
+    <Content Include="images\hh5.png" />
+    <Content Include="images\hh6.png" />
+    <Content Include="images\hh7.png" />
+    <Content Include="images\hh8.png" />
+    <Content Include="images\hh9.png" />
+    <Content Include="images\hinh12.jpg" />
+    <Content Include="images\hinh15.jpg" />
+    <Content Include="images\hinh22.jpg" />
+    <Content Include="images\hinh23.jpg" />
+    <Content Include="images\hinh24.jpg" />
+    <Content Include="images\hinh25.jpg" />
+    <Content Include="images\hinh10.jpg" />
+    <Content Include="images\hinh11.jpg" />
+    <Content Include="images\hinh13.jpg" />
+    <Content Include="images\hinh14.jpg" />
+    <Content Include="images\hinh16.jpg" />
+    <Content Include="images\hinh17.jpg" />
+    <Content Include="images\hinh18.jpg" />
+    <Content Include="images\hinh19.jpg" />
+    <Content Include="images\hinh20.jpg" />
+    <Content Include="images\hinh21.jpg" />
+    <Content Include="images\hinh1.jpg" />
+    <Content Include="images\hinh2.jpg" />
+    <Content Include="images\hinh3.jpg" />
+    <Content Include="images\hinh4.jpg" />
+    <Content Include="images\hinh5.jpg" />
+    <Content Include="images\hinh6.png" />
+    <Content Include="images\hinh7.jpg" />
+    <Content Include="images\hinh8.png" />
+    <Content Include="images\hinh9.jpg" />
+    <Content Include="images\hinh26.jpg" />
+    <Content Include="images\hinh27.jpg" />
+    <Content Include="images\hinh28.jpg" />
+    <Content Include="images\hinh29.jpg" />
+    <Content Include="images\hinh30.jpg" />
+    <Content Include="images\hinh31.jpg" />
+    <Content Include="images\hinh32.jpg" />
+    <Content Include="images\icon1.png" />
+    <Content Include="images\icon2.png" />
+    <Content Include="images\offer.png" />
+    <Content Include="images\p2.jpg" />
+    <Content Include="images\p3.jpg" />
+    <Content Include="images\p4.jpg" />
+    <Content Include="images\pc1.png" />
+    <Content Include="images\pc2.png" />
+    <Content Include="images\pc3.png" />
+    <Content Include="images\pc4.png" />
+    <Content Include="images\pc5.png" />
+    <Content Include="images\pc6.png" />
+    <Content Include="images\pc7.png" />
+    <Content Include="images\pc8.png" />
+    <Content Include="images\pc9.jpg" />
+    <Content Include="images\pf1.png" />
+    <Content Include="images\pf2.png" />
+    <Content Include="images\pf3.png" />
+    <Content Include="images\pf4.png" />
+    <Content Include="images\pf5.png" />
+    <Content Include="images\pf6.png" />
+    <Content Include="images\pf7.png" />
+    <Content Include="images\pf8.png" />
+    <Content Include="images\pf9.png" />
+    <Content Include="images\si1.jpg" />
+    <Content Include="images\star.png" />
+    <Content Include="images\star1.png" />
+    <Content Include="images\t1.jpg" />
+    <Content Include="images\t2.jpg" />
+    <Content Include="images\t3.jpg" />
+    <Content Include="images\t4.jpg" />
+    <Content Include="images\tick.png" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Models\dbFlowerShop.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>dbFlowerShop.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\easing.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.11.1.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\minicart.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\move-top.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\responsiveslides.min.js" />
+    <Content Include="Scripts\skdslider.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -234,6 +414,21 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LayoutUser.cshtml" />
+    <Content Include="Views\FlowerShop\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAbout.cshtml" />
+    <Content Include="Views\FlowerShop\About.cshtml" />
+    <Content Include="Views\Shared\_LayoutSingle.cshtml" />
+    <Content Include="Views\FlowerShop\Single.cshtml" />
+    <Content Include="Views\Shared\_LayoutProducts.cshtml" />
+    <Content Include="Views\FlowerShop\Products.cshtml" />
+    <Content Include="Views\Shared\_LayoutMycart.cshtml" />
+    <Content Include="Views\FlowerShop\Mycart.cshtml" />
+    <Content Include="Views\Shared\Header.cshtml" />
+    <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\FlowerShop\Chude.cshtml" />
+    <Content Include="Views\Shared\Hoaton.cshtml" />
+    <Content Include="Views\FlowerShop\Hoamoi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -245,6 +440,14 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\dbFlowerShop.dbml.layout">
+      <DependentUpon>dbFlowerShop.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

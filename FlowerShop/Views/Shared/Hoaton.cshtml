@@ -1,0 +1,77 @@
+﻿@model IEnumerable<FlowerShop.Models.HOA>
+<div class="container">
+    <h2>Top selling offers</h2>
+    <div class="grid_3 grid_5">
+        <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+            <ul id="myTab" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#expeditions" id="expeditions-tab" role="tab" data-toggle="tab" aria-controls="expeditions" aria-expanded="true">Hoa Đợt Cuối</a></li>
+                <li role="presentation"><a href="#tours" role="tab" id="tours-tab" data-toggle="tab" aria-controls="tours">Hoa Mới Nhập</a></li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="expeditions" aria-labelledby="expeditions-tab">
+                    <div class="agile-tp">
+                        <h5>Hoa sắp hêt hàng</h5>
+                        <p class="w3l-ad">Nhưng loại hoa sắp hêt hàng trong tuần.</p>
+                    </div>
+                    @foreach (var hoa in Model)
+                    {
+                        <div class="agile_top_brands_grids">
+                            <div class="col-md-4 top_brand_left">
+                                <div class="hover14 column">
+                                    <div class="agile_top_brand_left_grid">
+                                        <div class="agile_top_brand_left_grid_pos">
+                                            <img src="~/images/offer.png" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="agile_top_brand_left_grid1">
+                                            <figure>
+                                                <div class="snipcart-item block">
+                                                    <div class="snipcart-thumb">
+                                                        <a href="@Url.Action("Single", "FlowerShop", new { id = hoa.Mahoa })"><img title=" " alt=" " src="~/images/@hoa.Anhbia" /></a>
+                                                        <p>@hoa.Tenhoa</p>
+                                                        <div class="stars">
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                                        </div>
+                                                        <h4>@hoa.Giaban VNĐ<p>Còn lại: @hoa.Soluongton</p></h4>
+                                                    </div>
+                                                    <div class="snipcart-details top_brand_home_details">
+                                                        <form action="#" method="post">
+                                                            <fieldset>
+                                                                <input type="hidden" name="cmd" value="_cart" />
+                                                                <input type="hidden" name="add" value="1" />
+                                                                <input type="hidden" name="business" value=" " />
+                                                                <input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
+                                                                <input type="hidden" name="amount" value="20.99" />
+                                                                <input type="hidden" name="discount_amount" value="1.00" />
+                                                                <input type="hidden" name="currency_code" value="USD" />
+                                                                <input type="hidden" name="return" value=" " />
+                                                                <input type="hidden" name="cancel_return" value=" " />
+                                                                <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <div class="clearfix"></div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="tours" aria-labelledby="tours-tab">
+                    <div class="agile-tp">
+                        <h5>Nhập hôm nay</h5>
+                        <p class="w3l-ad">Các loại hoa vừa được nhập hôm nay.</p>
+                    </div>             
+                        @Html.Action("Hoamoi","FlowerShop")
+                        <div class="clearfix"> </div>               
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
