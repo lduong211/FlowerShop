@@ -34,18 +34,25 @@ namespace FlowerShop.Controllers
         public ActionResult Products()
         {
             var hoamoi = Layhoa(1000);
-            var anhbia = from Anhbia in data.HOAs select Anhbia; 
+            //var anhbia = from Anhbia in data.HOAs select Anhbia; 
             return View(hoamoi);
         }
         public ActionResult Mycart()
         {
             return View();
         }
-        public ActionResult Chude(int id)
+        //Chủ đề
+        public ActionResult Chude()
         {
             var chude = from cd in data.CHUDEs select cd;
             return PartialView(chude);
         }
+        public ActionResult SPTheoCD(int id)
+        {
+            var hoa = from cd in data.HOAs where cd.MaCD == id select cd;
+            return View(hoa);
+        }
+        //Lấy hoa tồn
         private List<HOA> Layhoaton(int count)
         {
             return data.HOAs.OrderBy(a => a.Soluongton).Take(count).ToList();

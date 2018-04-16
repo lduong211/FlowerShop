@@ -429,6 +429,7 @@
     <Content Include="Views\FlowerShop\Chude.cshtml" />
     <Content Include="Views\Shared\Hoaton.cshtml" />
     <Content Include="Views\FlowerShop\Hoamoi.cshtml" />
+    <Content Include="Views\FlowerShop\SPTheoCD.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
