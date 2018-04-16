@@ -42,6 +42,7 @@ namespace FlowerShop.Controllers
             return View();
         }
         //Chủ đề
+        //hmm
         public ActionResult Chude()
         {
             var chude = from cd in data.CHUDEs select cd;
