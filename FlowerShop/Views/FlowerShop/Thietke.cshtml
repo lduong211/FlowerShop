@@ -1,0 +1,6 @@
+﻿@model IEnumerable<FlowerShop.Models.THIETKE>
+
+@foreach(var item in Model)
+{
+    <li><a href="@Url.Action("SPTheoTK","FlowerShop", new { id = item.MaTK})">@item.KieuThietKe</a></li>
+}

@@ -42,7 +42,6 @@ namespace FlowerShop.Controllers
             return View();
         }
         //Chủ đề
-        //hmm
         public ActionResult Chude()
         {
             var chude = from cd in data.CHUDEs select cd;
@@ -51,6 +50,16 @@ namespace FlowerShop.Controllers
         public ActionResult SPTheoCD(int id)
         {
             var hoa = from cd in data.HOAs where cd.MaCD == id select cd;
+            return View(hoa);
+        }
+        public ActionResult Thietke()
+        {
+            var thietke = from tk in data.THIETKEs select tk;
+            return PartialView(thietke);
+        }
+        public ActionResult SPTheoTK(int id)
+        {
+            var hoa = from tk in data.HOAs where tk.MaTK == id select tk;
             return View(hoa);
         }
         //Lấy hoa tồn
