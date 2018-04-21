@@ -4,6 +4,9 @@ author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+@using FlowerShop.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<HOA>
 <!DOCTYPE html>
 <html>
 <head>
@@ -155,7 +158,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 @* ========== *@                
                 
                 <nav class="numbering">
-                    <ul class="pagination paging">
+                    @*<ul class="pagination paging">
                         <li>
                             <a href="#" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
@@ -171,9 +174,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
-                    </ul>
+                    </ul>*@
+                    Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
                 </nav>
-
+                <div class="MenuTrang" style="text-align:right">
+                    @Html.PagedListPager(Model,Page=>Url.Action("Products", new {page = Page}))
+                </div>
+                <style>
+                    .MenuTrang li{
+                        display: inline;
+                        text-align: right;
+                    }
+                </style>
             </div>
             <div class="clearfix"> </div>
         </div>

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FlowerShop.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace FlowerShop.Controllers
 {
@@ -31,11 +33,16 @@ namespace FlowerShop.Controllers
             var hoa = from s in data.HOAs where s.Mahoa == id select s;
             return View(hoa.Single());
         }
-        public ActionResult Products()
+        public ActionResult Products(int ? page)
         {
+            //tạo biến quy định số sản phẩm trên mỗi trang
+            int pageSize = 6;
+            //tạo biế số trang
+            int pageNum = (page ?? 1);
+
             var hoamoi = Layhoa(1000);
             //var anhbia = from Anhbia in data.HOAs select Anhbia; 
-            return View(hoamoi);
+            return View(hoamoi.ToPagedList(pageNum,pageSize));
         }
         public ActionResult Mycart()
         {
@@ -47,20 +54,30 @@ namespace FlowerShop.Controllers
             var chude = from cd in data.CHUDEs select cd;
             return PartialView(chude);
         }
-        public ActionResult SPTheoCD(int id)
+        public ActionResult SPTheoCD(int ? page, int id)
         {
+            //tạo biến quy định số sản phẩm trên mỗi trang
+            int pageSize = 6;
+            //tạo biế số trang
+            int pageNum = (page ?? 1);
+            //lấy hoa
             var hoa = from cd in data.HOAs where cd.MaCD == id select cd;
-            return View(hoa);
+            return View(hoa.ToPagedList(pageNum, pageSize));
         }
         public ActionResult Thietke()
         {
             var thietke = from tk in data.THIETKEs select tk;
             return PartialView(thietke);
         }
-        public ActionResult SPTheoTK(int id)
+        public ActionResult SPTheoTK(int ? page, int id)
         {
+            //tạo biến quy định số sản phẩm trên mỗi trang
+            int pageSize = 6;
+            //tạo biế số trang
+            int pageNum = (page ?? 1);
+            //lấy hoa
             var hoa = from tk in data.HOAs where tk.MaTK == id select tk;
-            return View(hoa);
+            return View(hoa.ToPagedList(pageNum, pageSize));
         }
         //Lấy hoa tồn
         private List<HOA> Layhoaton(int count)

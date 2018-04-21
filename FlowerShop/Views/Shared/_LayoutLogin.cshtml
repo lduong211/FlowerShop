@@ -65,18 +65,45 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="container">
             <h2>Login Form</h2>
 
-            <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
+            @*<div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
                 <form>
                     <input type="email" placeholder="Email Address" required=" ">
                     <input type="password" placeholder="Password" required=" ">
-                    @*<div class="forgot">
+                    <div class="forgot">
                         <a href="#">Forgot Password?</a>
-                    </div>*@
+                    </div>
                     <input type="submit" value="Login">
                 </form>
-            </div>
+            </div>*@
+            <h4 style="color:red; text-align:center">@ViewBag.Thongbao</h4>
+            <table align="center">
+                @using (Html.BeginForm())
+                {
+                    @Html.ValidationSummary(true)
+                    <tr style="height: 40px">
+                        <td>Tên đăng nhập:</td>
+                        <td>
+                            @Html.TextBox("TenDN")
+                            @ViewData["Loi1"]
+                        </td>
+                    </tr>
+                    <tr style="height: 40px">
+                        <td>Mật khẩu:</td>
+                        <td>
+                            @Html.TextBox("Matkhau")
+                            @ViewData["Loi2"]
+                        </td>
+                    </tr>
+                    <tr style="height: 40px">
+                        <td></td>
+                        <td>
+                            <input type="submit" value="Đăng Nhập" />
+                        </td>
+                    </tr>
+                }
+            </table>
             <h4>For New People</h4>
-            <p><a href="@Url.Action("Dangky","NguoiDung")">Register Here</a> (Or) go back to <a href="@Url.Action("Index","FlowerShop")">Home<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
+            <p><a href="@Url.Action("Dangky", "NguoiDung")">Register Here</a> (Or) go back to <a href="@Url.Action("Index","FlowerShop")">Home<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
         </div>
     </div>
     <!-- //login -->
