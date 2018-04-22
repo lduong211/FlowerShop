@@ -92,8 +92,8 @@ namespace FlowerShop.Controllers
             {
                 RedirectToAction("Mycart","FlowerShop");
             }
-            ViewBag Tongsoluong = TongSoLuong();
-            ViewBag Tongtien = TongTien();
+            ViewBag.Tongsoluong = TongSoLuong();
+            ViewBag.Tongtien = TongTien();
             return View(lstGiohang);
         }
     }
