@@ -219,6 +219,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dbFlowerShop.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Giohang.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -459,10 +460,11 @@
     <Content Include="Views\NguoiDung\Dangnhap.cshtml" />
     <Content Include="Views\Shared\_LayoutSPTheoTK.cshtml" />
     <Content Include="Views\Shared\_LayoutSPTheoCD.cshtml" />
+    <Content Include="Views\FlowerShop\Search.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\GioHang\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

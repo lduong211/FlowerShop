@@ -4,6 +4,7 @@ author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+@using FlowerShop.Controllers
 <!DOCTYPE html>
 <html>
 <head>
@@ -93,7 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <h4 class="m-sing">@Model.Giaban VNĐ</h4>
                         </div>
                         <div class="snipcart-details agileinfo_single_right_details">
-                            <form action="#" method="post">
+                            <form action="" method="post">
                                 <fieldset>
                                     <input type="hidden" name="cmd" value="_cart">
                                     <input type="hidden" name="add" value="1">
@@ -104,7 +105,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <input type="hidden" name="currency_code" value="VND">
                                     <input type="hidden" name="return" value=" ">
                                     <input type="hidden" name="cancel_return" value=" ">
-                                    <input type="submit" name="submit" value="Add to cart" class="button">
+                                    <input type="submit" name="submit" value="Add to cart" class="button" />
+                                    @*<a href="@Url.Action("ThemGioHang","GioHang",new { @iMahoa = Model.Mahoa, @strURL=Request.Url.ToString()})">Mua</a>*@
                                 </fieldset>
                             </form>
                         </div>

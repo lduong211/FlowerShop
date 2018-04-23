@@ -5,8 +5,7 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 @using FlowerShop.Models
-@using FlowerShop.Controllers
-@model List<GioHang>
+@model List<Giohang>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,12 +33,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script type="text/javascript" src="~/Scripts/move-top.js"></script>
     <script type="text/javascript" src="~/Scripts/easing.js"></script>
     <script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){
-			event.preventDefault();
-			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-		});
-	});
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
     </script>
     <!-- start-smoth-scrolling -->
 </head>
@@ -52,8 +51,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     @RenderPage("~/Views/Shared/Header.cshtml")
     <!-- //header -->
     <!-- navigation -->
-    
-
     <!-- //navigation -->
     <!-- breadcrumbs -->
     <div class="breadcrumbs">
@@ -73,116 +70,58 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <table class="timetable_sub">
                     <thead>
                         <tr>
-                            <th>SL No.</th>
-                            <th>Product</th>
-                            <th>Quality</th>
-                            <th>Product Name</th>
-
-                            <th>Price</th>
-                            <th>Remove</th>
+                            <th>Mã hoa</th>
+                            <th>Hoa</th>
+                            <th>Số lượng</th>
+                            <th>Tên hoa</th>
+                            <th>Giá</th>
+                            <th>Xóa</th>
                         </tr>
                     </thead>
+                    @foreach(var item in Model)
+                    {
                     <tr class="rem1">
-                        <td class="invert">1</td>
-                        <td class="invert-image"><a href="single.html"><img src="~/images/1.png" alt=" " class="img-responsive" /></a></td>
+                        <td class="invert">@item.iMahoa</td>
+                        <td class="invert-image"><a href="@Url.Action("Single","FlowerShop",new { id = @item.iMahoa })"><img src="~/images/@item.sAnhbia" alt=" " class="img-responsive" /></a></td>
                         <td class="invert">
                             <div class="quantity">
                                 <div class="quantity-select">
-                                    <div class="entry value-minus">&nbsp;</div>
-                                    <div class="entry value"><span>1</span></div>
-                                    <div class="entry value-plus active">&nbsp;</div>
+                                    @*<div class="entry value-minus">&nbsp;</div>*@
+                                    <div class="entry value"><span>@item.iSoluong</span></div>
+                                    @*<div class="entry value-plus active">&nbsp;</div>*@
                                 </div>
                             </div>
                         </td>
-                        <td class="invert">Tata Salt</td>
-
-                        <td class="invert">$290.00</td>
+                        <td class="invert">@item.sTenhoa</td>
+                        <td class="invert">@item.dDongia</td>
                         <td class="invert">
                             <div class="rem">
                                 <div class="close1"> </div>
                             </div>
                             <script>
-$(document).ready(function(c) {
-								$('.close1').on('click', function(c){
-									$('.rem1').fadeOut('slow', function(c){
-										$('.rem1').remove();
-									});
-									});
-								});
+                                $(document).ready(function (c) {
+                                    $('.close1').on('click', function (c) {
+                                        $('.rem1').fadeOut('slow', function (c) {
+                                            $('.rem1').remove();
+                                        });
+                                    });
+                                });
                             </script>
                         </td>
                     </tr>
-                    <tr class="rem2">
-                        <td class="invert">2</td>
-                        <td class="invert-image"><a href="single.html"><img src="~/images/2.png" alt=" " class="img-responsive" /></a></td>
-                        <td class="invert">
-                            <div class="quantity">
-                                <div class="quantity-select">
-                                    <div class="entry value-minus">&nbsp;</div>
-                                    <div class="entry value"><span>1</span></div>
-                                    <div class="entry value-plus active">&nbsp;</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="invert">Fortune oil</td>
 
-                        <td class="invert">$250.00</td>
-                        <td class="invert">
-                            <div class="rem">
-                                <div class="close2"> </div>
-                            </div>
-                            <script>
-$(document).ready(function(c) {
-								$('.close2').on('click', function(c){
-									$('.rem2').fadeOut('slow', function(c){
-										$('.rem2').remove();
-									});
-									});
-								});
-                            </script>
-                        </td>
-                    </tr>
-                    <tr class="rem3">
-                        <td class="invert">3</td>
-                        <td class="invert-image"><a href="single.html"><img src="~/images/3.png" alt=" " class="img-responsive" /></a></td>
-                        <td class="invert">
-                            <div class="quantity">
-                                <div class="quantity-select">
-                                    <div class="entry value-minus">&nbsp;</div>
-                                    <div class="entry value"><span>1</span></div>
-                                    <div class="entry value-plus active">&nbsp;</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="invert">Aashirvaad atta</td>
-
-                        <td class="invert">$15.00</td>
-                        <td class="invert">
-                            <div class="rem">
-                                <div class="close3"> </div>
-                            </div>
-                            <script>
-$(document).ready(function(c) {
-								$('.close3').on('click', function(c){
-									$('.rem3').fadeOut('slow', function(c){
-										$('.rem3').remove();
-									});
-									});
-								});
-                            </script>
-                        </td>
-                    </tr>
+                    }
                     <!--quantity-->
                     <script>
-									$('.value-plus').on('click', function(){
-										var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
-										divUpd.text(newVal);
-									});
+                        $('.value-plus').on('click', function () {
+                            var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) + 1;
+                            divUpd.text(newVal);
+                        });
 
-									$('.value-minus').on('click', function(){
-										var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
-										if(newVal>=1) divUpd.text(newVal);
-									});
+                        $('.value-minus').on('click', function () {
+                            var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) - 1;
+                            if (newVal >= 1) divUpd.text(newVal);
+                        });
                     </script>
                     <!--quantity-->
                 </table>
@@ -199,7 +138,7 @@ $(document).ready(function(c) {
                     </ul>
                 </div>
                 <div class="checkout-right-basket">
-                    <input  type="button" onclick="history.back(-1)" value="Continue Shopping"/> 
+                    <input type="submit" name="submit" onclick="history.back(-1)" value="Quay lại" class="button">
                     @*<a href=""><span class="glyphicon glyphicon-menu-left" aria-hidden="true" onclick="history.back(-1)"> Quay lại </span></a>*@
                 </div>
                 <div class="clearfix"> </div>
@@ -215,8 +154,8 @@ $(document).ready(function(c) {
     <!-- top-header and slider -->
     <!-- here stars scrolling icon -->
     <script type="text/javascript">
-		$(document).ready(function() {
-			/*
+        $(document).ready(function () {
+            /*
 				var defaults = {
 				containerID: 'toTop', // fading element id
 				containerHoverID: 'toTopHover', // fading element hover id
@@ -225,34 +164,34 @@ $(document).ready(function(c) {
 				};
 			*/
 
-			$().UItoTop({ easingType: 'easeOutQuart' });
+            $().UItoTop({ easingType: 'easeOutQuart' });
 
-			});
+        });
     </script>
     <!-- //here ends scrolling icon -->
     <script src="~/Scripts/minicart.min.js"></script>
     <script>
-	// Mini Cart
-	paypal.minicart.render({
-		action: '#'
-	});
+        // Mini Cart
+        paypal.minicart.render({
+            action: '#'
+        });
 
-	if (~window.location.search.indexOf('reset=true')) {
-		paypal.minicart.reset();
-	}
+        if (~window.location.search.indexOf('reset=true')) {
+            paypal.minicart.reset();
+        }
     </script>
     <!-- main slider-banner -->
     <script src="~/Scripts/skdslider.min.js"></script>
     <link href="~/Content/skdslider.css" rel="stylesheet">
     <script type="text/javascript">
-		jQuery(document).ready(function(){
-			jQuery('#demo1').skdslider({'delay':5000, 'animationSpeed': 2000,'showNextPrev':true,'showPlayButton':true,'autoSlide':true,'animationType':'fading'});
+        jQuery(document).ready(function () {
+            jQuery('#demo1').skdslider({ 'delay': 5000, 'animationSpeed': 2000, 'showNextPrev': true, 'showPlayButton': true, 'autoSlide': true, 'animationType': 'fading' });
 
-			jQuery('#responsive').change(function(){
-			  $('#responsive_wrapper').width(jQuery(this).val());
-			});
+            jQuery('#responsive').change(function () {
+                $('#responsive_wrapper').width(jQuery(this).val());
+            });
 
-		});
+        });
     </script>
     <!-- //main slider-banner -->
 

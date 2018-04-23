@@ -44,10 +44,10 @@ namespace FlowerShop.Controllers
             //var anhbia = from Anhbia in data.HOAs select Anhbia; 
             return View(hoamoi.ToPagedList(pageNum,pageSize));
         }
-        public ActionResult Mycart()
-        {
-            return View();
-        }
+        //public ActionResult Mycart()
+        //{
+        //    return View();
+        //}
         //Chủ đề
         public ActionResult Chude()
         {
@@ -97,6 +97,22 @@ namespace FlowerShop.Controllers
         {
             var hoamoi = Layhoamoi(6);
             return PartialView(hoamoi);
+        }
+        public ActionResult Search(int Macd = 0, String search = "")
+        {
+            if (Macd != 0)
+            {
+                var model = data.HOAs
+                    .Where(p => p.MaCD == Macd);
+                return View(model);
+            }
+            else if (search != "")
+            {
+                var model = data.HOAs
+                    .Where(p => p.Tenhoa.Contains(search));
+                return View(model);
+            }
+            return View(data.HOAs);
         }
     }
 }
