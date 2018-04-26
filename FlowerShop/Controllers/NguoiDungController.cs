@@ -81,6 +81,7 @@ namespace FlowerShop.Controllers
         {
             return View();
         }
+        [HttpPost]
         public ActionResult Dangnhap(FormCollection collection)
         {
             //gán các giá trị người dùng nhập cho các biến
@@ -108,7 +109,12 @@ namespace FlowerShop.Controllers
             }
             return View();
         }
-
+        public ActionResult LogOff()
+        {
+            Session["Taikhoan"] = null;
+            Session["Taikhoan"] = "";
+            return RedirectToAction("Index", "FlowerShop");
+        }
 
     }
 }

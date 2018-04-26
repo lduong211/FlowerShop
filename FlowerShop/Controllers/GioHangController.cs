@@ -72,5 +72,25 @@ namespace FlowerShop.Controllers
             ViewBag.Tongtien = TongTien();
             return View(lstGiohang);
         }
+        [HttpGet]
+        public ActionResult DatHang()
+        {
+            //Kiem tra dang nhap
+            if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
+            {
+                return RedirectToAction("Dangnhap", "Nguoidung");
+            }
+            if (Session["Giohang"] == null)
+            {
+                return RedirectToAction("Index", "BookStore");
+            }
+
+            //Lay gio hang tu Session
+            List<Giohang> lstGiohang = Laygiohang();
+            ViewBag.Tongsoluong = TongSoLuong();
+            ViewBag.Tongtien = TongTien();
+
+            return View(lstGiohang);
+        }
     }
 }

@@ -1,26 +1,55 @@
-﻿<div class="agileits_header">
-    <div class="container">
-        <div class="w3l_offers">
-            <p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href=@Url.Action("Products","FlowerShop")>SHOP NOW</a></p>
-        </div>
-        <div class="agile-login">
-            <ul>
-                <li><a href="@Url.Action("Dangky","NguoiDung")"> Create Account </a></li>
-                <li><a href="@Url.Action("Dangnhap", "NguoiDung")">Login</a></li>
-                <li><a href="contact.html">Help</a></li>
+﻿@if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
+{
+    <div class="agileits_header">
+        <div class="container">
+            <div class="w3l_offers">
+                <p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href=@Url.Action("Products","FlowerShop")>SHOP NOW</a></p>
+            </div>
+            <div class="agile-login">
+                <ul>
+                    <li><a href="@Url.Action("Dangky","NguoiDung")">Đăng ký</a></li>
+                    <li><a href="@Url.Action("Dangnhap", "NguoiDung")">Đăng nhập</a></li>
+                    <li><a href="@Url.Action("AdminDangnhap", "Admin")">Đăng nhập(Admin)</a></li>
 
-            </ul>
+                </ul>
+            </div>
+            <div class="product_list_header">
+                <form action="#" method="post" class="last">
+                    <input type="hidden" name="cmd" value="_cart">
+                    <input type="hidden" name="display" value="1">
+                    <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+                </form>
+            </div>
+            <div class="clearfix"> </div>
         </div>
-        <div class="product_list_header">
-            <form action="#" method="post" class="last">
-                <input type="hidden" name="cmd" value="_cart">
-                <input type="hidden" name="display" value="1">
-                <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-            </form>
-        </div>
-        <div class="clearfix"> </div>
     </div>
-</div>
+}
+else
+{
+    <div class="agileits_header">
+        <div class="container">
+            <div class="w3l_offers">
+                <p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href=@Url.Action("Products","FlowerShop")>SHOP NOW</a></p>
+            </div>
+            <div class="agile-login">
+                <ul>
+                    <li><a href="@Url.Action("Dangky","NguoiDung")">Xin chào</a></li>
+                    <li><a href="@Url.Action("LogOff", "NguoiDung")">Ðang xuất</a></li>
+                    <li><a href="@Url.Action("GioHang", "GioHang")">Giỏ hàng</a></li>
+
+                </ul>
+            </div>
+            <div class="product_list_header">
+                <form action="#" method="post" class="last">
+                    <input type="hidden" name="cmd" value="_cart">
+                    <input type="hidden" name="display" value="1">
+                    <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+                </form>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+}
 
 
 <div class="logo_products">
@@ -35,13 +64,16 @@
             <h1><a href=@Url.Action("Index","FlowerShop")>Flower Shop</a></h1>
         </div>
         <div class="w3l_search">
-            <form action="/FlowerShop/Search" method="post">
-                <input type="search" name="Search" placeholder="Search for a Product..." required="">
+            @using (Html.BeginForm("Ketquatimkiem", "TimKiem", FormMethod.Post))
+            {
+                @*<input type="search" name="Search" placeholder="Search for a Product..." required="">*@
+                <input type="search" @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhập vào từ khóa cần tìm ..." })
                 <button type="submit" class="btn btn-default search" aria-label="Left Align">
-                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <i class="fa fa-search" aria-hidden="true"> </i>
                 </button>
                 <div class="clearfix"></div>
-            </form>
+            }
+
         </div>
 
         <div class="clearfix"> </div>
@@ -62,7 +94,7 @@
          
             <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href=@Url.Action("Index", "FlowerShop") class="act">Home</a></li>
+                    <li class="active"><a href=@Url.Action("Index", "FlowerShop") class="act">Trang chủ</a></li>
                     <!-- Mega Menu -->
                     @*<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Groceries<b class="caret"></b></a>
@@ -164,7 +196,7 @@
                     <li><a href="gourmet.html">Gourmet</a></li>
                     <li><a href="offers.html">Offers</a></li>*@
                     @Html.Action("Chude","FlowerShop")
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="@Url.Action("Contact","FlowerShop")">Liên hệ</a></li>
                 </ul>
             </div>
             

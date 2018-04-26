@@ -1,0 +1,42 @@
+﻿@model FlowerShop.Models.CHUDE
+
+@{
+    ViewBag.Title = "Xoachude";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<h3>Bạn có muốn xóa chủ đề này không?</h3>
+<div>
+    <h4>CHUDE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaCD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaCD)
+        </dd>
+        <hr />
+        <dt>
+            @Html.DisplayNameFor(model => model.TenChuDe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenChuDe)
+        </dd>
+        <hr />
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "Chude")
+        </div>
+    }
+</div>

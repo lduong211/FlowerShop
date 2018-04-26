@@ -28,6 +28,10 @@ namespace FlowerShop.Controllers
         {
             return View();
         }
+        public ActionResult Contact()
+        {
+            return View();
+        }
         public ActionResult Single(int id)
         {
             var hoa = from s in data.HOAs where s.Mahoa == id select s;
@@ -97,22 +101,6 @@ namespace FlowerShop.Controllers
         {
             var hoamoi = Layhoamoi(6);
             return PartialView(hoamoi);
-        }
-        public ActionResult Search(int Macd = 0, String search = "")
-        {
-            if (Macd != 0)
-            {
-                var model = data.HOAs
-                    .Where(p => p.MaCD == Macd);
-                return View(model);
-            }
-            else if (search != "")
-            {
-                var model = data.HOAs
-                    .Where(p => p.Tenhoa.Contains(search));
-                return View(model);
-            }
-            return View(data.HOAs);
-        }
+        }   
     }
 }

@@ -1,0 +1,84 @@
+﻿@model FlowerShop.Models.HOA
+
+@{
+    ViewBag.Title = "Xoahoa";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xoahoa</h2>
+
+<h3>Bạn có chắc muốn xóa không?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên hoa:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tenhoa)
+        </dd>
+
+        <hr />
+        <dt>
+            Giá bán:
+        </dt>
+        <dd>
+            @String.Format("{0:0,0}", Model.Giaban) VNĐ
+        </dd>
+        <hr />
+        <dt>
+            Mô tả:
+        </dt>
+        <dd style="width:600px; text-align:justify">
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+        <hr />
+        <dt>
+            Ảnh bìa:
+        </dt>
+        <dd>
+            <img src="@Url.Content("~/images/"+  Model.Anhbia)" width="120px" />
+        </dd>
+
+        <hr />
+        <dt>
+            Ngày cập nhất:
+        </dt>
+        <dd>
+            @String.Format("{0:dd/MM/yyyy}", Model.Ngaycapnhat)
+        </dd>
+        <hr />
+        <dt>
+            Số lượng tồn:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Soluongton)
+        </dd>
+        <hr />
+        <dt>
+            Thiết kế:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.THIETKE.KieuThietKe)
+        </dd>
+        <hr />
+        <dt>
+            Chủ đề:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CHUDE.TenChuDe)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "Hoa")
+        </div>
+    }
+</div>

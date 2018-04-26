@@ -1,0 +1,37 @@
+﻿@model IEnumerable<FlowerShop.Models.THIETKE>
+
+@{
+    ViewBag.Title = "Thietke";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thietke</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th style="width:200px">  Tên Thiết kế </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaTK)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KieuThietKe)
+            </td>
+            <td>
+                @*@Html.ActionLink("Sửa", "Suathietke", new { id = item.MaTK }) |*@
+                @Html.ActionLink("Xóa", "Xoathietke", new { id = item.MaTK })
+            </td>
+        </tr>
+    }
+
+</table>

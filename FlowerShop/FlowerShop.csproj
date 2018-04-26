@@ -205,11 +205,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\FlowerShopController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -277,6 +279,7 @@
     <Content Include="images\card.png" />
     <Content Include="images\check.png" />
     <Content Include="images\close_1.png" />
+    <Content Include="images\deptrai.jpg" />
     <Content Include="images\ebi-zandi-522961-unsplash.jpg" />
     <Content Include="images\gu1.png" />
     <Content Include="images\gu2.png" />
@@ -332,6 +335,7 @@
     <Content Include="images\icon2.png" />
     <Content Include="images\lizzie-254528-unsplash.jpg" />
     <Content Include="images\lizzie-474655-unsplash.jpg" />
+    <Content Include="images\occhos.jpg" />
     <Content Include="images\offer.png" />
     <Content Include="images\p2.jpg" />
     <Content Include="images\p3.jpg" />
@@ -355,6 +359,10 @@
     <Content Include="images\pf8.png" />
     <Content Include="images\pf9.png" />
     <Content Include="images\roman-kraft-148702-unsplash.jpg" />
+    <Content Include="images\Shop%28about1%29.jpg" />
+    <Content Include="images\Shop%28about2%29.jpg" />
+    <Content Include="images\Shop%28about3%29.jpg" />
+    <Content Include="images\Shopabout4.jpg" />
     <Content Include="images\si1.jpg" />
     <Content Include="images\star.png" />
     <Content Include="images\star1.png" />
@@ -460,11 +468,34 @@
     <Content Include="Views\NguoiDung\Dangnhap.cshtml" />
     <Content Include="Views\Shared\_LayoutSPTheoTK.cshtml" />
     <Content Include="Views\Shared\_LayoutSPTheoCD.cshtml" />
-    <Content Include="Views\FlowerShop\Search.cshtml" />
     <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\Shared\_LayoutSearch.cshtml" />
+    <Content Include="Views\TimKiem\Ketquatimkiem.cshtml" />
+    <Content Include="Views\Shared\_LayoutContact.cshtml" />
+    <Content Include="Views\FlowerShop\Contact.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Shared\_LayoutLoginAdmin.cshtml" />
+    <Content Include="Views\Admin\AdminDangnhap.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Hoa.cshtml" />
+    <Content Include="Views\Admin\Themmoihoa.cshtml" />
+    <Content Include="Views\Admin\Chitiethoa.cshtml" />
+    <Content Include="Views\Admin\Xoahoa.cshtml" />
+    <Content Include="Views\Admin\Xacnhanxoa.cshtml" />
+    <Content Include="Views\Admin\Suahoa.cshtml" />
+    <Content Include="Views\Admin\Chude.cshtml" />
+    <Content Include="Views\Admin\Themmoichude.cshtml" />
+    <Content Include="Views\Admin\Xoachude.cshtml" />
+    <Content Include="Views\Admin\XNxoachude.cshtml" />
+    <Content Include="Views\Admin\Suachude.cshtml" />
+    <Content Include="Views\Admin\Thietke.cshtml" />
+    <Content Include="Views\Admin\Themmoithietke.cshtml" />
+    <Content Include="Views\Admin\Xoathietke.cshtml" />
+    <Content Include="Views\Admin\XNxoathietke.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Search\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

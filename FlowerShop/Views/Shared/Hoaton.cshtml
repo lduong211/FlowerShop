@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<FlowerShop.Models.HOA>
 <div class="container">
-    <h2>Top selling offers</h2>
+    <h2>Sản phẩm bán hàng đầu</h2>
     <div class="grid_3 grid_5">
         <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
             <ul id="myTab" class="nav nav-tabs" role="tablist">
@@ -10,8 +10,8 @@
             <div id="myTabContent" class="tab-content">
                 <div role="tabpanel" class="tab-pane fade in active" id="expeditions" aria-labelledby="expeditions-tab">
                     <div class="agile-tp">
-                        <h5>Hoa sắp hêt hàng</h5>
-                        <p class="w3l-ad">Nhưng loại hoa sắp hêt hàng trong tuần.</p>
+                        <h5>Hoa sắp hết hàng</h5>
+                        <p class="w3l-ad">Nhưng loại hoa sắp hết hàng trong tuần.</p>
                     </div>
                     @foreach (var hoa in Model)
                     {
