@@ -111,6 +111,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </tr>
 
                     }
+                    <tr style="font-weight: bold; color:blue; text-align:right ">
+                        <td colspan="9">
+                            @Html.ActionLink("Xóa Giỏ Hàng", "XoaTatcaGiohang","GioHang")
+                        </td>
+                    </tr>
+                    <tr style="font-weight: bold; color:blue; text-align:right ">
+                        <td colspan="9" align="center">
+                            @Html.ActionLink("ĐẶT HÀNG", "Dathang", "GioHang")
+                        </td>
+                    </tr>
                     <!--quantity-->
                     <script>
                         $('.value-plus').on('click', function () {
@@ -128,10 +138,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="checkout-left">
                 <div class="checkout-left-basket">
-                    <h4>Continue to basket</h4>
+                    <h4>Thành tiền</h4>
                     <ul>
-                        <li>Tổng số lượng: <i>-</i> <span>@Url.Action("TongSoLuong","GioHang")</span></li>
-                        <li>Tổng tiền: <i>-</i> <span>@Url.Action("TongTien","GioHang")</span></li>
+                        <li>Tổng số lượng: <i>-</i> @ViewBag.TongSoLuong</li>
+                        <li>Tổng tiền: <i>-</i> @ViewBag.TongTien VNĐ</li> 
                     </ul>
                 </div>
                 <div class="checkout-right-basket">
@@ -139,7 +149,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     @*<a href=""><span class="glyphicon glyphicon-menu-left" aria-hidden="true" onclick="history.back(-1)"> Quay lại </span></a>*@
                 </div>
                 <div class="clearfix"> </div>
-            </div>
+            </div>     
         </div>
     </div>
     <!-- //checkout -->
