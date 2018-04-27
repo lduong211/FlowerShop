@@ -494,6 +494,7 @@
     <Content Include="Views\Admin\XNxoathietke.cshtml" />
     <Content Include="Views\Shared\_LayoutDatHang.cshtml" />
     <Content Include="Views\GioHang\DatHang.cshtml" />
+    <Content Include="Views\GioHang\DatHangForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

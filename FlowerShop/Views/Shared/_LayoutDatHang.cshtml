@@ -48,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div>
         @RenderBody()
     </div>
-    @*@RenderPage("~/Views/Shared/Header.cshtml")*@
+    @RenderPage("~/Views/Shared/Header.cshtml")
     <!-- //header -->
     <!-- navigation -->
     <!-- //navigation -->
@@ -63,7 +63,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     <!-- //breadcrumbs -->
     <!-- checkout -->
-    @RenderPage("~/Views/GioHang/DatHang.cshtml")
+    <div class="checkout">
+        <div class="container">
+            @RenderPage("~/Views/GioHang/DatHangForm.cshtml")
+        </div>
+    </div>
     <!-- //checkout -->
     <!-- //footer -->
     @RenderPage("~/Views/Shared/Footer.cshtml")
