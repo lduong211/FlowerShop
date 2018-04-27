@@ -125,7 +125,7 @@ namespace FlowerShop.Controllers
             }
             if (Session["Giohang"] == null)
             {
-                return RedirectToAction("Index", "BookStore");
+                return RedirectToAction("Products", "FlowerShop");
             }
 
             //Lay gio hang tu Session

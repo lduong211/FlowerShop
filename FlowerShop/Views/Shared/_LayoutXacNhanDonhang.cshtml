@@ -4,10 +4,12 @@ author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+@using FlowerShop.Models
+@model List<Giohang>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Super Market an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Login :: w3layouts</title>
+    <title>Super Market an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Checkout :: w3layouts</title>
     <!-- for-mobile-apps -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -31,20 +33,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script type="text/javascript" src="~/Scripts/move-top.js"></script>
     <script type="text/javascript" src="~/Scripts/easing.js"></script>
     <script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){
-			event.preventDefault();
-			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-		});
-	});
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
     </script>
     <!-- start-smoth-scrolling -->
 </head>
+
 <body>
+    <!-- header -->
     <div>
         @RenderBody()
     </div>
-    <!-- header -->
     @RenderPage("~/Views/Shared/Header.cshtml")
     <!-- //header -->
     <!-- navigation -->
@@ -52,59 +55,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- breadcrumbs -->
     <div class="breadcrumbs">
         <div class="container">
-            <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+            <ol class="breadcrumb breadcrumb1">
                 <li><a href="@Url.Action("Index","FlowerShop")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Trang chủ</a></li>
-                <li class="active">Đăng nhập(Admin)</li>
+                <li class="active">Xác nhận đơn hàng</li>
             </ol>
         </div>
     </div>
     <!-- //breadcrumbs -->
-    <!-- login -->
-    <div class="login">
+    <!-- checkout -->
+    <div class="checkout">
         <div class="container">
-            <h2>Login Form</h2>
-            @*<div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
-                    <form>
-                        <input type="email" placeholder="Email Address" required=" ">
-                        <input type="password" placeholder="Password" required=" ">
-                        <div class="forgot">
-                            <a href="#">Forgot Password?</a>
-                        </div>
-                        <input type="submit" value="Login">
-                    </form>
-                </div>*@
-            <h4 style="color:red; text-align:center">@ViewBag.Thongbao</h4>
-            <table align="center">
-                @using (Html.BeginForm())
-                {
-                    @Html.ValidationSummary(true)
-                    <tr style="height: 40px">
-                        <td>Tên đăng nhập:</td>
-                        <td>
-                            @Html.TextBox("TenDN")
-                            @ViewData["Loi1"]
-                        </td>
-                    </tr>
-                    <tr style="height: 40px">
-                        <td>Mật khẩu:</td>
-                        <td>
-                            @Html.Password("Matkhau")
-                            @ViewData["Loi2"]
-                        </td>
-                    </tr>
-                    <tr style="height: 40px">
-                        <td></td>
-                        <td>
-                            <input type="submit" value="Đăng Nhập" />
-                        </td>
-                    </tr>
-                }
-            </table>
-            @*<h4>For New People</h4>
-            <p><a href="@Url.Action("Dangky", "NguoiDung")">Register Here</a> (Or) go back to <a href="@Url.Action("Index","FlowerShop")">Home<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>*@
+            @RenderPage("~/Views/GioHang/XacNhanDonHangForm.cshtml")
         </div>
     </div>
-    <!-- //login -->
+    <!-- //checkout -->
     <!-- //footer -->
     @RenderPage("~/Views/Shared/Footer.cshtml")
     <!-- //footer -->
@@ -113,8 +77,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- top-header and slider -->
     <!-- here stars scrolling icon -->
     <script type="text/javascript">
-		$(document).ready(function() {
-			/*
+        $(document).ready(function () {
+            /*
 				var defaults = {
 				containerID: 'toTop', // fading element id
 				containerHoverID: 'toTopHover', // fading element hover id
@@ -123,35 +87,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				};
 			*/
 
-			$().UItoTop({ easingType: 'easeOutQuart' });
+            $().UItoTop({ easingType: 'easeOutQuart' });
 
-			});
+        });
     </script>
     <!-- //here ends scrolling icon -->
     <script src="~/Scripts/minicart.min.js"></script>
     <script>
-	// Mini Cart
-	paypal.minicart.render({
-		action: '#'
-	});
+        // Mini Cart
+        paypal.minicart.render({
+            action: '#'
+        });
 
-	if (~window.location.search.indexOf('reset=true')) {
-		paypal.minicart.reset();
-	}
+        if (~window.location.search.indexOf('reset=true')) {
+            paypal.minicart.reset();
+        }
     </script>
     <!-- main slider-banner -->
     <script src="~/Scripts/skdslider.min.js"></script>
     <link href="~/Content/skdslider.css" rel="stylesheet">
     <script type="text/javascript">
-		jQuery(document).ready(function(){
-			jQuery('#demo1').skdslider({'delay':5000, 'animationSpeed': 2000,'showNextPrev':true,'showPlayButton':true,'autoSlide':true,'animationType':'fading'});
+        jQuery(document).ready(function () {
+            jQuery('#demo1').skdslider({ 'delay': 5000, 'animationSpeed': 2000, 'showNextPrev': true, 'showPlayButton': true, 'autoSlide': true, 'animationType': 'fading' });
 
-			jQuery('#responsive').change(function(){
-			  $('#responsive_wrapper').width(jQuery(this).val());
-			});
+            jQuery('#responsive').change(function () {
+                $('#responsive_wrapper').width(jQuery(this).val());
+            });
 
-		});
+        });
     </script>
     <!-- //main slider-banner -->
+
 </body>
 </html>
