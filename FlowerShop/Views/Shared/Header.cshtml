@@ -36,7 +36,7 @@ else
                 <ul>
                     <li><a href="">Xin chào, @kh.HoTen</a></li>
                     <li><a href="@Url.Action("LogOff", "NguoiDung")">Ðang xuất</a></li>
-                    <li><a href="@Url.Action("GioHang", "GioHang")">Giỏ hàng (@ViewBag.TongSoLuong)</a></li>
+                    <li><a href="@Url.Action("GioHang", "GioHang")">Giỏ hàng @Html.Action("PartialTSL", "GioHang")</a></li>
                 </ul>
             </div>
             @*<div class="product_list_header">
