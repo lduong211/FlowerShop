@@ -2,81 +2,81 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.75" name="dbFlowerShop">
   <DataContextMoniker Name="/dbFlowerShopDataContext" />
   <nestedChildShapes>
-    <classShape Id="59ac91fd-2998-4efd-b8ec-67c34e2ed2c6" absoluteBounds="6.75, 5.875, 2, 1.3862939453125005">
+    <classShape Id="47c3dc16-9291-4a87-8b89-6d934a2e031f" absoluteBounds="6.75, 5.75, 2, 1.3862939453125005">
       <DataClassMoniker Name="/dbFlowerShopDataContext/ADMIN" />
       <nestedChildShapes>
-        <elementListCompartment Id="99456239-ac78-477e-b4d7-80647e88fb8d" absoluteBounds="6.765, 6.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c11c9e8f-80bf-4fca-a425-e514f2e8bcfc" absoluteBounds="6.765, 6.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="84d6c1a9-d08c-4dec-95ed-68471cc734b1" absoluteBounds="6.25, 2.5, 2, 1.578595377604167">
+    <classShape Id="2d4fdda6-d312-46e9-95ff-643b6a92a5aa" absoluteBounds="6.25, 2.5, 2, 1.578595377604167">
       <DataClassMoniker Name="/dbFlowerShopDataContext/CHITIETDONTHANG" />
       <nestedChildShapes>
-        <elementListCompartment Id="7307939a-9e9d-4718-89c4-1d70e38b950e" absoluteBounds="6.265, 2.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c2f14bd7-aefe-49d2-868b-bc8b97d85be5" absoluteBounds="6.265, 2.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="4c6d0893-f711-4621-917d-f3d70de354e5" absoluteBounds="0.75, 2.75, 2, 1.1939925130208335">
+    <classShape Id="be26bac1-c205-4061-a242-ae1dd12af124" absoluteBounds="0.75, 2.75, 2, 1.1939925130208335">
       <DataClassMoniker Name="/dbFlowerShopDataContext/CHUDE" />
       <nestedChildShapes>
-        <elementListCompartment Id="80c59dde-456b-4e67-a86e-2f2dafacc86f" absoluteBounds="0.765, 3.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="980756a8-c8d4-4203-98b1-6a5473f0c271" absoluteBounds="0.765, 3.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="dbfcbc5d-76c4-4daf-a6af-ffd6e1c2abf4" absoluteBounds="3.5, 6.375, 2, 1.9631982421875005">
+    <classShape Id="c66db84f-7d75-49b3-ba7f-1fa2fafce49c" absoluteBounds="3.5, 6.375, 2, 1.9631982421875005">
       <DataClassMoniker Name="/dbFlowerShopDataContext/DONDATHANG" />
       <nestedChildShapes>
-        <elementListCompartment Id="053ad6aa-5a27-4d59-9e05-085d8278b02a" absoluteBounds="3.515, 6.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="7a4b887b-ffbc-41b9-8492-bbc9855d5fb4" absoluteBounds="3.515, 6.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="e32925f8-13d5-4b44-a7a4-995de01a66e6" absoluteBounds="3.5, 2.125, 2, 2.5401025390624996">
+    <classShape Id="41b7643a-02fe-4852-9f8b-2998f244f7b3" absoluteBounds="3.5, 2, 2, 2.732403971354167">
       <DataClassMoniker Name="/dbFlowerShopDataContext/HOA" />
       <nestedChildShapes>
-        <elementListCompartment Id="3fea7a8a-7b3f-4b8c-b7ee-c5c5ee0a905f" absoluteBounds="3.515, 2.585, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="ea2254de-bfd0-4c18-9a75-71c8a91bdb36" absoluteBounds="3.515, 2.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="0e45b32f-7bef-43ba-9b92-525f1e8d1b8b" absoluteBounds="0.75, 6.125, 2, 2.3478011067708344">
+    <classShape Id="0154a6de-270a-4c1e-a813-33e93b9ce99b" absoluteBounds="0.75, 6.125, 2, 2.3478011067708353">
       <DataClassMoniker Name="/dbFlowerShopDataContext/KHACHHANG" />
       <nestedChildShapes>
-        <elementListCompartment Id="e6e836a6-c762-42f2-a02d-a7e63f97be6f" absoluteBounds="0.765, 6.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="ba58321f-cd55-4de1-a0f5-05ddb64b1238" absoluteBounds="0.765, 6.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="8e7b9e0a-1791-4e6d-aaee-3b0c7d6e4c5c" absoluteBounds="0.75, 0.75, 2, 1.1939925130208335">
+    <classShape Id="a63c5387-5fe3-4041-8002-77327f779f1d" absoluteBounds="0.75, 0.75, 2, 1.1939925130208335">
       <DataClassMoniker Name="/dbFlowerShopDataContext/THIETKE" />
       <nestedChildShapes>
-        <elementListCompartment Id="fe55b2d7-7f14-40dc-a248-bc17008c7c04" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="b9f5b1e2-f268-43d6-a341-dcf7f1880400" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 7.83099609375); (6.46875 : 7.83099609375); (6.46875 : 4.07859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 7.76849609375); (6.46875 : 7.76849609375); (6.46875 : 4.07859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbFlowerShopDataContext/DONDATHANG/DONDATHANG_CHITIETDONTHANG" />
       <nodes>
-        <classShapeMoniker Id="dbfcbc5d-76c4-4daf-a6af-ffd6e1c2abf4" />
-        <classShapeMoniker Id="84d6c1a9-d08c-4dec-95ed-68471cc734b1" />
+        <classShapeMoniker Id="c66db84f-7d75-49b3-ba7f-1fa2fafce49c" />
+        <classShapeMoniker Id="2d4fdda6-d312-46e9-95ff-643b6a92a5aa" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(5.5 : 3.28929768880208); (6.25 : 3.28929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbFlowerShopDataContext/HOA/HOA_CHITIETDONTHANG" />
       <nodes>
-        <classShapeMoniker Id="e32925f8-13d5-4b44-a7a4-995de01a66e6" />
-        <classShapeMoniker Id="84d6c1a9-d08c-4dec-95ed-68471cc734b1" />
+        <classShapeMoniker Id="41b7643a-02fe-4852-9f8b-2998f244f7b3" />
+        <classShapeMoniker Id="2d4fdda6-d312-46e9-95ff-643b6a92a5aa" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 3.34699625651042); (3.5 : 3.34699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbFlowerShopDataContext/CHUDE/CHUDE_HOA" />
       <nodes>
-        <classShapeMoniker Id="4c6d0893-f711-4621-917d-f3d70de354e5" />
-        <classShapeMoniker Id="e32925f8-13d5-4b44-a7a4-995de01a66e6" />
+        <classShapeMoniker Id="be26bac1-c205-4061-a242-ae1dd12af124" />
+        <classShapeMoniker Id="41b7643a-02fe-4852-9f8b-2998f244f7b3" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 7.35659912109375); (3.5 : 7.35659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbFlowerShopDataContext/KHACHHANG/KHACHHANG_DONDATHANG" />
       <nodes>
-        <classShapeMoniker Id="0e45b32f-7bef-43ba-9b92-525f1e8d1b8b" />
-        <classShapeMoniker Id="dbfcbc5d-76c4-4daf-a6af-ffd6e1c2abf4" />
+        <classShapeMoniker Id="0154a6de-270a-4c1e-a813-33e93b9ce99b" />
+        <classShapeMoniker Id="c66db84f-7d75-49b3-ba7f-1fa2fafce49c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 1.34699625651042); (4.5 : 1.34699625651042); (4.5 : 2.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 1.34699625651042); (4.5 : 1.34699625651042); (4.5 : 2)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbFlowerShopDataContext/THIETKE/THIETKE_HOA" />
       <nodes>
-        <classShapeMoniker Id="8e7b9e0a-1791-4e6d-aaee-3b0c7d6e4c5c" />
-        <classShapeMoniker Id="e32925f8-13d5-4b44-a7a4-995de01a66e6" />
+        <classShapeMoniker Id="a63c5387-5fe3-4041-8002-77327f779f1d" />
+        <classShapeMoniker Id="41b7643a-02fe-4852-9f8b-2998f244f7b3" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

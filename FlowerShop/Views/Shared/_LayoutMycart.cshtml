@@ -65,51 +65,61 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- checkout -->
     <div class="checkout">
         <div class="container">
-            <h2>Your shopping cart contains: <span>3 Products</span></h2>
             <div class="checkout-right">
                 <table class="timetable_sub">
                     <thead>
                         <tr>
                             <th>Mã hoa</th>
+                            <th>Tên hoa</th>
                             <th>Hoa</th>
                             <th>Số lượng</th>
-                            <th>Tên hoa</th>
                             <th>Giá</th>
                             <th>Xóa</th>
+                            <th>Cập nhật</th>
                         </tr>
                     </thead>
                     @foreach(var item in Model)
                     {
                     <tr class="rem1">
                         <td class="invert">@item.iMahoa</td>
+                        <td class="invert">@item.sTenhoa</td>
                         <td class="invert-image"><a href="@Url.Action("Single","FlowerShop",new { id = @item.iMahoa })"><img src="~/images/@item.sAnhbia" alt=" " class="img-responsive" /></a></td>
-                        <td class="invert">
+                        @*<td class="invert">
                             <div class="quantity">
                                 <div class="quantity-select">
-                                    @*<div class="entry value-minus">&nbsp;</div>*@
+                                    @*<div class="entry value-minus">&nbsp;</div>
                                     <div class="entry value"><span>@item.iSoluong</span></div>
-                                    @*<div class="entry value-plus active">&nbsp;</div>*@
+                                    @*<div class="entry value-plus active">&nbsp;</div>
                                 </div>
                             </div>
-                        </td>
-                        <td class="invert">@item.sTenhoa</td>
-                        <td class="invert">@item.dDongia</td>
-                        <td class="invert">
-                            <div class="rem">
-                                <div class="close1"> </div>
-                            </div>
-                            <script>
-                                $(document).ready(function (c) {
-                                    $('.close1').on('click', function (c) {
-                                        $('.rem1').fadeOut('slow', function (c) {
-                                            $('.rem1').remove();
-                                        });
-                                    });
-                                });
-                            </script>
-                        </td>
+                        </td>*@
+                        @using (Html.BeginForm("CapnhatGiohang", "Giohang", new { @iMaSp = item.iMahoa }))
+                        {
+                            <td>
+                                <input type="number" min="1" name="txtSoluong" value="@item.iSoluong" style="background-color:yellow" />
+                            </td>
+                            <td class="invert">@item.dDongia</td>
+                            <td class="invert-image">
+                                @*@Html.ActionLink("Xóa","XoaGioHang","GioHang",new { id = @item.iMahoa})*@
+                                <a href="@Url.Action("XoaGioHang","GioHang",new { @iMahoa = item.iMahoa})">
+                                    <img src="~/images/close_1.png" alt=" " class="img-responsive" />
+                                    @*<div class="rem">
+                                        <div class="close1"> </div>
+                                        </div>*@
+                                    @*<script>
+                                            $(document).ready(function (c) {
+                                                $('.close1').on('click', function (c) {
+                                                    $('.rem1').fadeOut('slow', function (c) {
+                                                        $('.rem1').remove();
+                                                    });
+                                                });
+                                            });
+                                        </script>*@
+                                </a>
+                            </td>
+                            <td> <input type="submit" value="Cập Nhật" /></td>
+                        }    
                     </tr>
-
                     }
                     <tr style="font-weight: bold; color:blue; text-align:right ">
                         <td colspan="9">

@@ -3,7 +3,7 @@
   <Table Name="dbo.ADMIN" Member="ADMINs">
     <Type Name="ADMIN">
       <Column Name="MaAd" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TenTK" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="TenTK" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="MatKhau" Type="System.String" DbType="Char(50)" CanBeNull="true" />
     </Type>
   </Table>
@@ -14,7 +14,7 @@
       <Column Name="Soluong" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Dongia" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Association Name="DONDATHANG_CHITIETDONTHANG" Member="DONDATHANG" ThisKey="MaDonHang" OtherKey="MaDonHang" Type="DONDATHANG" IsForeignKey="true" />
-      <Association Name="HOA_CHITIETDONTHANG" Member="HOA" ThisKey="Mahoa" OtherKey="Mahoa" Type="HOA" IsForeignKey="true" />
+      <Association Name="HOA_CHITIETDONTHANG" Member="HOA" ThisKey="Mahoa" OtherKey="Mahoa" Type="HOA" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.CHUDE" Member="CHUDEs">
@@ -47,9 +47,10 @@
       <Column Name="Soluongton" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaTK" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaCD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ThanhToanTT" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="HOA_CHITIETDONTHANG" Member="CHITIETDONTHANGs" ThisKey="Mahoa" OtherKey="Mahoa" Type="CHITIETDONTHANG" />
       <Association Name="CHUDE_HOA" Member="CHUDE" ThisKey="MaCD" OtherKey="MaCD" Type="CHUDE" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="THIETKE_HOA" Member="THIETKE" ThisKey="MaTK" OtherKey="MaTK" Type="THIETKE" IsForeignKey="true" />
+      <Association Name="THIETKE_HOA" Member="THIETKE" ThisKey="MaTK" OtherKey="MaTK" Type="THIETKE" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.KHACHHANG" Member="KHACHHANGs">

@@ -49,7 +49,10 @@
                                                                 <input type="hidden" name="currency_code" value="VND" />
                                                                 <input type="hidden" name="return" value=" " />
                                                                 <input type="hidden" name="cancel_return" value=" " />
-                                                                <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                                @*<input type="submit" name="submit" value="Add to cart" class="button" />*@
+                                                                <p style="display:block; color:white; text-align: center; background:border-box; background-color:#fe9126; padding-top: 5px; padding-bottom:5px">
+                                                                    @Html.ActionLink("Thêm giỏ hàng", "ThemGioHang", "GioHang", new { @iMahoa = @hoa.Mahoa, @strURL = Request.Url.ToString() }, null)
+                                                                </p>
                                                             </fieldset>
                                                         </form>
                                                     </div>

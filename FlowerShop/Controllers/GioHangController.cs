@@ -88,25 +88,24 @@ namespace FlowerShop.Controllers
             return RedirectToAction("Giohang");
         }
         //Xoa Giohang
-        public ActionResult XoaGioHang(int iMaSP)
+        public ActionResult XoaGioHang(int iMaHoa)
         {
             //Lay gio hang tu Session
             List<Giohang> lstGiohang = Laygiohang();
             //Kiem tra sach da co trong Session["Giohang"]
-            Giohang sanpham = lstGiohang.SingleOrDefault(n => n.iMahoa == iMaSP);
+            Giohang sanpham = lstGiohang.SingleOrDefault(n => n.iMahoa == iMaHoa);
             //Neu ton tai thi cho sua Soluong
             if (sanpham != null)
             {
-                lstGiohang.RemoveAll(n => n.iMahoa == iMaSP);
+                lstGiohang.RemoveAll(n => n.iMahoa == iMaHoa);
                 return RedirectToAction("GioHang");
-
-            }
+            }         
             if (lstGiohang.Count == 0)
             {
-                return RedirectToAction("Index", "FlowerShop");
+                return RedirectToAction("Products", "FlowerShop");
             }
             return RedirectToAction("GioHang");
-        }
+        }  
         //Xoa tat ca thong tin trong Gio hang
         public ActionResult XoaTatcaGiohang()
         {
@@ -169,5 +168,15 @@ namespace FlowerShop.Controllers
         {
             return View();
         }
+        public ActionResult PartialTSL()
+        {
+            if(TongSoLuong() == 0)
+            {
+                return PartialView();
+            }
+            ViewBag.TongSoLuong = TongSoLuong();
+            return PartialView();
+        }
+
     }
 }

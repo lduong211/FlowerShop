@@ -4,4 +4,7 @@
 
 <h3>Đơn hàng của quý khách đã được chúng tôi ghi nhận. Chúng tôi sẽ liên hệ quý khách trong thời gian sớm nhất và giao hàng đúng hẹn.</h3>
 <h3>Xin cảm ơn!</h3>
-<a href="@Url.Action("Products","FlowerShop")">Tiếp tục mua hàng</a>
+@*<a href="@Url.Action("Products","FlowerShop")">Tiếp tục mua hàng</a>*@
+<p style="float:right;display:block;color:white; text-align: center; background:border-box; background-color:#fe9126; padding-top: 5px; padding-bottom:5px; padding-left:5px; padding-right:5px">
+    @Html.ActionLink("Tiếp tục mua hàng", "Products", "FlowerShop")
+</p>

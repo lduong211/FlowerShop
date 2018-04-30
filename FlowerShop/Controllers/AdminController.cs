@@ -15,6 +15,10 @@ namespace FlowerShop.Controllers
         dbFlowerShopDataContext db = new dbFlowerShopDataContext();
         public ActionResult Index()
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("AdminDangnhap", "Admin");
+            }
             return View();
         }
 
@@ -53,6 +57,13 @@ namespace FlowerShop.Controllers
                     ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";
             }
             return View();
+        }
+        //===================Admin đăng xuất
+        public ActionResult LogOff()
+        {
+            Session["Taikhoanadmin"] = null;
+            Session["Taikhoanadmin"] = "";
+            return RedirectToAction("Index", "FlowerShop");
         }
         //===================HOA
         public ActionResult Hoa(int? page)
@@ -164,62 +175,62 @@ namespace FlowerShop.Controllers
             return RedirectToAction("Hoa");
         }
 
-        [HttpGet]
-        public ActionResult Suahoa(int id)
-        {
-            //Lay ra doi tuong sach theo ma
-            HOA hoa = db.HOAs.SingleOrDefault(n => n.Mahoa == id);
-            //ViewBag.Mahoa = hoa.Mahoa;
-            if (hoa == null)
-            {
-                Response.StatusCode = 404;
-                return null;
-            }
-            //Dua du lieu vao dropdownList
-            //Lay ds tu tabke chu de, s?p xep tang dan trheo ten chu de, chon lay gia tri Ma CD, hien thi thi Tenchude
-            ViewBag.MaCD = new SelectList(db.CHUDEs.ToList().OrderBy(n => n.TenChuDe), "MaCD", "TenChuDe", hoa.MaCD);
-            ViewBag.MaTK = new SelectList(db.THIETKEs.ToList().OrderBy(n => n.KieuThietKe), "MaTK", "KieuThietKe",hoa.MaTK);
-            return View(hoa);
-        }
+        //[HttpGet]
+        //public ActionResult Suahoa(int id)
+        //{
+        //    //Lay ra doi tuong sach theo ma
+        //    HOA hoa = db.HOAs.SingleOrDefault(n => n.Mahoa == id);
+        //    //ViewBag.Mahoa = hoa.Mahoa;
+        //    if (hoa == null)
+        //    {
+        //        Response.StatusCode = 404;
+        //        return null;
+        //    }
+        //    //Dua du lieu vao dropdownList
+        //    //Lay ds tu tabke chu de, s?p xep tang dan trheo ten chu de, chon lay gia tri Ma CD, hien thi thi Tenchude
+        //    ViewBag.MaCD = new SelectList(db.CHUDEs.ToList().OrderBy(n => n.TenChuDe), "MaCD", "TenChuDe", hoa.MaCD);
+        //    ViewBag.MaTK = new SelectList(db.THIETKEs.ToList().OrderBy(n => n.KieuThietKe), "MaTK", "KieuThietKe",hoa.MaTK);
+        //    return View(hoa);
+        //}
 
-        [HttpPost]
-        [ValidateInput(false)]
-        public ActionResult Suahoa(HOA hoa , HttpPostedFileBase fileUpload)
-        {
-            //Dua du lieu vao dropdownload
-            ViewBag.MaCD = new SelectList(db.CHUDEs.ToList().OrderBy(n => n.TenChuDe), "MaCD", "TenChude");
-            ViewBag.MaTK = new SelectList(db.THIETKEs.ToList().OrderBy(n => n.KieuThietKe), "MaTK", "KieuThietKe");
-            //Kiem tra duong dan file
-            if (fileUpload == null)
-            {
-                ViewBag.Thongbao = "Vui lòng chọn ảnh bìa";
-                return View();
-            }
-            //Them vao CSDL
-            else
-            {
-                if (ModelState.IsValid)
-                {
-                    //Luu ten fie, luu y bo sung thu vien using System.IO;
-                    var fileName = Path.GetFileName(fileUpload.FileName);
-                    //Luu duong dan cua file
-                    var path = Path.Combine(Server.MapPath("~/images"), fileName);
-                    //Kiem tra hình anh ton tai chua?
-                    if (System.IO.File.Exists(path))
-                        ViewBag.Thongbao = "Hình ảnh đã tồn tại";
-                    else
-                    {
-                        //Luu hinh anh vao duong dan
-                        fileUpload.SaveAs(path);
-                    }
-                    hoa.Anhbia = fileName;
-                    //Luu vao CSDL   
-                    UpdateModel(hoa);
-                    db.SubmitChanges();
-                }
-                return RedirectToAction("Hoa");
-            }
-        }
+        //[HttpPost]
+        //[ValidateInput(false)]
+        //public ActionResult Suahoa(HOA hoa , HttpPostedFileBase fileUpload)
+        //{
+        //    //Dua du lieu vao dropdownload
+        //    ViewBag.MaCD = new SelectList(db.CHUDEs.ToList().OrderBy(n => n.TenChuDe), "MaCD", "TenChude");
+        //    ViewBag.MaTK = new SelectList(db.THIETKEs.ToList().OrderBy(n => n.KieuThietKe), "MaTK", "KieuThietKe");
+        //    //Kiem tra duong dan file
+        //    if (fileUpload == null)
+        //    {
+        //        ViewBag.Thongbao = "Vui lòng chọn ảnh bìa";
+        //        return View();
+        //    }
+        //    //Them vao CSDL
+        //    else
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            //Luu ten fie, luu y bo sung thu vien using System.IO;
+        //            var fileName = Path.GetFileName(fileUpload.FileName);
+        //            //Luu duong dan cua file
+        //            var path = Path.Combine(Server.MapPath("~/images"), fileName);
+        //            //Kiem tra hình anh ton tai chua?
+        //            if (System.IO.File.Exists(path))
+        //                ViewBag.Thongbao = "Hình ảnh đã tồn tại";
+        //            else
+        //            {
+        //                //Luu hinh anh vao duong dan
+        //                fileUpload.SaveAs(path);
+        //            }
+        //            hoa.Anhbia = fileName;
+        //            //Luu vao CSDL   
+        //            UpdateModel(hoa);
+        //            db.SubmitChanges();
+        //        }
+        //        return RedirectToAction("Hoa");
+        //    }
+        //}
         //===============================================================================================================
         //====================CHU DE
         public ActionResult Chude(int? page)
@@ -371,6 +382,82 @@ namespace FlowerShop.Controllers
             db.THIETKEs.DeleteOnSubmit(tk);
             db.SubmitChanges();
             return RedirectToAction("Thietke");
+        }
+
+        [HttpGet]
+        public string getImage(int id)
+        {
+            return db.HOAs.SingleOrDefault(n => n.Mahoa == id).Anhbia;
+        }
+        public ActionResult Suasp(int id)
+        {
+            HOA sp = db.HOAs.SingleOrDefault(n => n.Mahoa == id);
+            ViewBag.MaSanPham = sp.Mahoa;
+            if (sp == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            ViewBag.MaTK = new SelectList(db.THIETKEs.ToList().OrderBy(n => n.KieuThietKe), "MaTK", "KieuThietKe", sp.MaTK);
+            ViewBag.MaCD = new SelectList(db.CHUDEs.ToList().OrderBy(n => n.TenChuDe), "MaCD", "TenChuDe", sp.MaCD);
+            return View(sp);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult Suasp(HOA sp, HttpPostedFileBase fileUpload)
+        {
+
+            HOA spm = db.HOAs.SingleOrDefault(n => n.Mahoa == sp.Mahoa);
+            ViewBag.MaSanPham = sp.Mahoa;
+            var Tenhoa = sp.Tenhoa;
+            var Matk = sp.MaTK;
+            var Macd = sp.MaCD;
+            var Mota = sp.Mota;
+            var Gia = sp.Giaban;
+            var Soluongton = sp.Soluongton;
+            var Anh = sp.Anhbia;
+            var ngaycn = sp.Ngaycapnhat;
+
+            spm.Ngaycapnhat = ngaycn;
+            spm.Tenhoa = Tenhoa;
+            spm.Anhbia = Anh;
+            spm.MaTK = Matk;
+            spm.MaCD = Macd;
+            spm.Mota = Mota;
+            spm.Giaban = Gia;
+            spm.Soluongton = Soluongton;
+
+            if (ModelState.IsValid)
+            {
+                ViewBag.MaTK = new SelectList(db.THIETKEs.ToList().OrderBy(n => n.KieuThietKe), "MaTK", "KieuThietKe");
+                ViewBag.MaCD = new SelectList(db.CHUDEs.ToList().OrderBy(n => n.TenChuDe), "MaCD", "TenChuDe");
+                if (fileUpload == null)
+                {
+                    spm.Anhbia = getImage(sp.Mahoa);
+                }
+                else
+                {
+                    if (ModelState.IsValid)
+                    {
+                        var fileName = Path.GetFileName(fileUpload.FileName);
+                        var path = Path.Combine(Server.MapPath("~/images/"), fileName); 
+                        if (System.IO.File.Exists(path))
+                        {
+                            sp.Anhbia = fileName;
+                            ViewBag.Thongbao = "Hình ảnh đã tồn tại";
+                            return View(sp);
+                        }
+                        else
+                        {
+                            fileUpload.SaveAs(path);
+                            spm.Anhbia = fileName;
+                        }
+                    }
+                }
+                db.SubmitChanges();
+            }
+            return RedirectToAction("Hoa");
         }
     }
 }

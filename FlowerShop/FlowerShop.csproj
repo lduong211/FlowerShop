@@ -264,7 +264,10 @@
     <Content Include="images\b3.jpg" />
     <Content Include="images\banner-hoa.jpg" />
     <Content Include="images\banner-hoa3.jpg" />
+    <Content Include="images\banner1.png" />
     <Content Include="images\banner2-hoa.jpg" />
+    <Content Include="images\banner2.png" />
+    <Content Include="images\banner3.jpg" />
     <Content Include="images\beatriz-perez-moya-191993-unsplash.jpg" />
     <Content Include="images\bv1.png" />
     <Content Include="images\bv2.png" />
@@ -498,6 +501,8 @@
     <Content Include="Views\GioHang\Xacnhandonhang.cshtml" />
     <Content Include="Views\Shared\_LayoutXacNhanDonhang.cshtml" />
     <Content Include="Views\GioHang\XacNhanDonHangForm.cshtml" />
+    <Content Include="Views\Admin\Suasp.cshtml" />
+    <Content Include="Views\GioHang\PartialTSL.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

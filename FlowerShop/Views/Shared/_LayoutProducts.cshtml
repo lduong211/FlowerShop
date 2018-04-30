@@ -71,7 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="container">
             <div class="col-md-4 products-left">
                 <div class="categories">
-                    <h2>Categories</h2>
+                    <h2>Thể loại</h2>
                     <ul class="cate">
                         <li><i class="" aria-hidden="true"></i>Tìm theo kiểu thiết kế</li>
                         <ul>
@@ -142,7 +142,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                         <input type="hidden" name="currency_code" value="VND">
                                                         <input type="hidden" name="return" value=" ">
                                                         <input type="hidden" name="cancel_return" value=" ">
-                                                        <input type="submit" name="submit" value="Add to cart" class="button" >
+                                                        @*<input type="submit" name="submit" value="Add to cart" class="button" >*@
+                                                        <p style="display:block;color:white; text-align: center; background:border-box; background-color:#fe9126; padding-top: 5px; padding-bottom:5px">
+                                                            @Html.ActionLink("Thêm giỏ hàng", "ThemGioHang", "GioHang", new { @iMahoa = @hoa.Mahoa, @strURL = Request.Url.ToString() }, null)
+                                                        </p>
                                                     </fieldset>
                                                 </form>
                                             </div>

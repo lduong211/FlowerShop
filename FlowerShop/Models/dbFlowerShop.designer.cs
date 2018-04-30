@@ -167,7 +167,7 @@ namespace FlowerShop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenTK", DbType="Char(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenTK", DbType="NVarChar(MAX)")]
 		public string TenTK
 		{
 			get
@@ -361,7 +361,7 @@ namespace FlowerShop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HOA_CHITIETDONTHANG", Storage="_HOA", ThisKey="Mahoa", OtherKey="Mahoa", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HOA_CHITIETDONTHANG", Storage="_HOA", ThisKey="Mahoa", OtherKey="Mahoa", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public HOA HOA
 		{
 			get
@@ -805,6 +805,8 @@ namespace FlowerShop.Models
 		
 		private System.Nullable<int> _MaCD;
 		
+		private string _ThanhToanTT;
+		
 		private EntitySet<CHITIETDONTHANG> _CHITIETDONTHANGs;
 		
 		private EntityRef<CHUDE> _CHUDE;
@@ -833,6 +835,8 @@ namespace FlowerShop.Models
     partial void OnMaTKChanged();
     partial void OnMaCDChanging(System.Nullable<int> value);
     partial void OnMaCDChanged();
+    partial void OnThanhToanTTChanging(string value);
+    partial void OnThanhToanTTChanged();
     #endregion
 		
 		public HOA()
@@ -1031,6 +1035,26 @@ namespace FlowerShop.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThanhToanTT", DbType="NVarChar(MAX)")]
+		public string ThanhToanTT
+		{
+			get
+			{
+				return this._ThanhToanTT;
+			}
+			set
+			{
+				if ((this._ThanhToanTT != value))
+				{
+					this.OnThanhToanTTChanging(value);
+					this.SendPropertyChanging();
+					this._ThanhToanTT = value;
+					this.SendPropertyChanged("ThanhToanTT");
+					this.OnThanhToanTTChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HOA_CHITIETDONTHANG", Storage="_CHITIETDONTHANGs", ThisKey="Mahoa", OtherKey="Mahoa")]
 		public EntitySet<CHITIETDONTHANG> CHITIETDONTHANGs
 		{
@@ -1078,7 +1102,7 @@ namespace FlowerShop.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="THIETKE_HOA", Storage="_THIETKE", ThisKey="MaTK", OtherKey="MaTK", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="THIETKE_HOA", Storage="_THIETKE", ThisKey="MaTK", OtherKey="MaTK", IsForeignKey=true, DeleteRule="CASCADE")]
 		public THIETKE THIETKE
 		{
 			get

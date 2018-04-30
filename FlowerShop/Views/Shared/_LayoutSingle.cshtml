@@ -84,17 +84,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </span>
                     </div>
                     <div class="w3agile_description">
-                        <h4>Description :</h4>
+                        <h4>Mô tả :</h4>
                         <p>
                             @Model.Mota
                         </p>
                     </div>
                     <div class="snipcart-item block">
                         <div class="snipcart-thumb agileinfo_single_right_snipcart">
-                            <h4 class="m-sing">@Model.Giaban VNĐ</h4>
+                            <h4 class="m-sing">Giá: @Model.Giaban VNĐ</h4>
                         </div>
                         <div class="snipcart-details agileinfo_single_right_details">
-                            <form action="" method="post">
+                            <form action="~/Controllers/GioHang/ThemGioHang" method="post">
                                 <fieldset>
                                     <input type="hidden" name="cmd" value="_cart">
                                     <input type="hidden" name="add" value="1">
@@ -105,201 +105,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <input type="hidden" name="currency_code" value="VND">
                                     <input type="hidden" name="return" value=" ">
                                     <input type="hidden" name="cancel_return" value=" ">
-                                    <input type="submit" name="submit" value="Add to cart" class="button" />
-                                    <a href="@Url.Action("ThemGioHang","GioHang",new { @iMahoa = Model.Mahoa, @strURL=Request.Url.ToString()})">Thêm vào giỏ hàng</a>
+                                    @*<input type="submit" name="submit" value="Add to cart" class="button" formaction="@Url.Action("ThemGioHang","GioHang",new { @iMahoa = Model.Mahoa, @strURL=Request.Url.ToString()})" formmethod="post"/>*@
+                                    @*<a href="@Url.Action("ThemGioHang","GioHang",new { @iMahoa = Model.Mahoa, @strURL=Request.Url.ToString()})">Thêm vào giỏ hàng</a>*@
+                                    <p style="display:block;color:white; text-align: center; background:border-box; background-color:#fe9126; padding-top: 5px; padding-bottom:5px;border:5px solid white">
+                                        @Html.ActionLink("Thêm giỏ hàng", "ThemGioHang", "GioHang", new { @iMahoa = Model.Mahoa, @strURL = Request.Url.ToString() }, null)
+                                    </p>
+                                    <div class="clearfix"></div>
+                                    <span style="float:right;display:block; background:border-box; background-color:#fe9126; border:5px solid white;"><a href="@Model.ThanhToanTT"><img src="http://www.baokim.vn/developers/uploads/baokim_btn/" alt="Thanh toán trực tuyến"></a></span>
                                 </fieldset>
-                            </form>
-                        </div>
-                    </div>
+                            </form>        
+                        </div>   
+                    </div>      
                 </div>
                 <div class="clearfix"> </div>
-            </div>
+            </div>         
         </div>
+        <!--Container-->
     </div>
     <!-- new -->
-    <div class="newproducts-w3agile">
+    @*<div class="newproducts-w3agile">
         <div class="container">
-            <h3>New offers</h3>
-            <div class="agile_top_brands_grids">
-                <div class="col-md-3 top_brand_left-1">
-                    <div class="hover14 column">
-                        <div class="agile_top_brand_left_grid">
-                            <div class="agile_top_brand_left_grid_pos">
-                                <img src="~/images/offer.png" alt=" " class="img-responsive">
-                            </div>
-                            <div class="agile_top_brand_left_grid1">
-                                <figure>
-                                    <div class="snipcart-item block">
-                                        <div class="snipcart-thumb">
-                                            <a href="products.html"><img title=" " alt=" " src="~/images/14.png"></a>
-                                            <p>Fried-gram</p>
-                                            <div class="stars">
-                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
-                                            </div>
-                                            <h4>$35.99 <span>$55.00</span></h4>
-                                        </div>
-                                        <div class="snipcart-details top_brand_home_details">
-                                            <form action="#" method="post">
-                                                <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart">
-                                                    <input type="hidden" name="add" value="1">
-                                                    <input type="hidden" name="business" value=" ">
-                                                    <input type="hidden" name="item_name" value="Fortune Sunflower Oil">
-                                                    <input type="hidden" name="amount" value="35.99">
-                                                    <input type="hidden" name="discount_amount" value="1.00">
-                                                    <input type="hidden" name="currency_code" value="USD">
-                                                    <input type="hidden" name="return" value=" ">
-                                                    <input type="hidden" name="cancel_return" value=" ">
-                                                    <input type="submit" name="submit" value="Add to cart" class="button">
-                                                </fieldset>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 top_brand_left-1">
-                    <div class="hover14 column">
-                        <div class="agile_top_brand_left_grid">
-                            <div class="agile_top_brand_left_grid_pos">
-                                <img src="~/images/offer.png" alt=" " class="img-responsive">
-                            </div>
-                            <div class="agile_top_brand_left_grid1">
-                                <figure>
-                                    <div class="snipcart-item block">
-                                        <div class="snipcart-thumb">
-                                            <a href="products.html"><img title=" " alt=" " src="~/images/15.png"></a>
-                                            <p>Navaratan-dal</p>
-                                            <div class="stars">
-                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
-                                            </div>
-                                            <h4>$30.99 <span>$45.00</span></h4>
-                                        </div>
-                                        <div class="snipcart-details top_brand_home_details">
-                                            <form action="#" method="post">
-                                                <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart">
-                                                    <input type="hidden" name="add" value="1">
-                                                    <input type="hidden" name="business" value=" ">
-                                                    <input type="hidden" name="item_name" value="basmati rise">
-                                                    <input type="hidden" name="amount" value="30.99">
-                                                    <input type="hidden" name="discount_amount" value="1.00">
-                                                    <input type="hidden" name="currency_code" value="USD">
-                                                    <input type="hidden" name="return" value=" ">
-                                                    <input type="hidden" name="cancel_return" value=" ">
-                                                    <input type="submit" name="submit" value="Add to cart" class="button">
-                                                </fieldset>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 top_brand_left-1">
-                    <div class="hover14 column">
-                        <div class="agile_top_brand_left_grid">
-                            <div class="agile_top_brand_left_grid_pos">
-                                <img src="~/images/offer.png" alt=" " class="img-responsive">
-                            </div>
-                            <div class="agile_top_brand_left_grid_pos">
-                                <img src="~/images/offer.png" alt=" " class="img-responsive">
-                            </div>
-                            <div class="agile_top_brand_left_grid1">
-                                <figure>
-                                    <div class="snipcart-item block">
-                                        <div class="snipcart-thumb">
-                                            <a href="products.html"><img src="~/images/16.png" alt=" " class="img-responsive"></a>
-                                            <p>White-peasmatar</p>
-                                            <div class="stars">
-                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
-                                            </div>
-                                            <h4>$80.99 <span>$105.00</span></h4>
-                                        </div>
-                                        <div class="snipcart-details top_brand_home_details">
-                                            <form action="#" method="post">
-                                                <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart">
-                                                    <input type="hidden" name="add" value="1">
-                                                    <input type="hidden" name="business" value=" ">
-                                                    <input type="hidden" name="item_name" value="Pepsi soft drink">
-                                                    <input type="hidden" name="amount" value="80.00">
-                                                    <input type="hidden" name="discount_amount" value="1.00">
-                                                    <input type="hidden" name="currency_code" value="USD">
-                                                    <input type="hidden" name="return" value=" ">
-                                                    <input type="hidden" name="cancel_return" value=" ">
-                                                    <input type="submit" name="submit" value="Add to cart" class="button">
-                                                </fieldset>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 top_brand_left-1">
-                    <div class="hover14 column">
-                        <div class="agile_top_brand_left_grid">
-                            <div class="agile_top_brand_left_grid_pos">
-                                <img src="~/images/offer.png" alt=" " class="img-responsive">
-                            </div>
-                            <div class="agile_top_brand_left_grid1">
-                                <figure>
-                                    <div class="snipcart-item block">
-                                        <div class="snipcart-thumb">
-                                            <a href="products.html"><img title=" " alt=" " src="~/images/17.png"></a>
-                                            <p>Channa-dal</p>
-                                            <div class="stars">
-                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
-                                            </div>
-                                            <h4>$35.99 <span>$55.00</span></h4>
-                                        </div>
-                                        <div class="snipcart-details top_brand_home_details">
-                                            <form action="#" method="post">
-                                                <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart">
-                                                    <input type="hidden" name="add" value="1">
-                                                    <input type="hidden" name="business" value=" ">
-                                                    <input type="hidden" name="item_name" value="Fortune Sunflower Oil">
-                                                    <input type="hidden" name="amount" value="35.99">
-                                                    <input type="hidden" name="discount_amount" value="1.00">
-                                                    <input type="hidden" name="currency_code" value="USD">
-                                                    <input type="hidden" name="return" value=" ">
-                                                    <input type="hidden" name="cancel_return" value=" ">
-                                                    <input type="submit" name="submit" value="Add to cart" class="button">
-                                                </fieldset>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
         </div>
-    </div>
+    </div>*@
     <!-- //new -->
     <!-- //footer -->
     @RenderPage("~/Views/Shared/Footer.cshtml")

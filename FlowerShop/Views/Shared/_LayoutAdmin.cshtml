@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-
+﻿@using FlowerShop.Models
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -52,11 +52,21 @@
                         @Html.ActionLink("QUẢN LÝ CHỦ ĐỀ", "Chude", "Admin")
                     </li>
                     <li>
-                        @Html.ActionLink("QỦA LÝ Thiết Kế", "Thietke", "Admin")
+                        @Html.ActionLink("QUẢN LÝ THIẾT KẾ", "Thietke", "Admin")
                     </li>
                     <li>
                         @Html.ActionLink("QUẢN LÝ HOA", "Hoa", "Admin")
                     </li>
+                    <li style="float: right">
+                        @{
+                            ADMIN ad = (ADMIN)Session["Taikhoanadmin"];
+                            <a href="">XIN CHÀO ADMIN @ad.TenTK</a>
+                        }
+                    </li>
+                    <li style="float:right">
+                        @Html.ActionLink("ĐĂNG XUẤT", "LogOff", "Admin")
+                    </li>  
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

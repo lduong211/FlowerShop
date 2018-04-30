@@ -101,8 +101,9 @@ namespace FlowerShop.Controllers
                 KHACHHANG kh = db.KHACHHANGs.SingleOrDefault(n => n.Taikhoan == tendn && n.Matkhau == matkhau);
                 if (kh != null)
                 {
-                    ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";
+                    //ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";
                     Session["Taikhoan"] = kh;
+                    return RedirectToAction("GioHang", "GioHang");
                 }
                 else
                     ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";
